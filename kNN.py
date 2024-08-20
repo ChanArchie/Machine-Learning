@@ -40,3 +40,18 @@ def classfy0 (inX , dataSet ,labels, k):
         classCount[voteIlabel] = classCount.get(voteIlabel,0) +1
     sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)
     return sortedClassCount [0][0]
+
+def file2matrix(filename) :
+    fr = open(filename)
+    arrayOLines = fr.readline()
+    numberOfLines = len(arrayOLines)
+    retuenMat = zeros ((numberOfLines,3))
+    classLabelVector = []
+    index = 0
+    for line in arrayOLines:
+        line = line.strip()
+        listFromLine = line.split('\t')
+        retuenMat[index,:] = listFromLine[0:3]
+        classLabelVector.append(int(listFromLine[-1]))
+        index += 1
+    return retuenMat,classLabelVector
