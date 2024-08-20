@@ -29,6 +29,7 @@ def createDataSet() :
 
 def classify0 (inX , dataSet ,labels, k):
     '''
+
     :param inX:Input vector to be classified
     :param dataSet:Input training sample set (vector set)
     :param labels:Label set of sample set
@@ -51,6 +52,11 @@ def classify0 (inX , dataSet ,labels, k):
     return sortedClassCount [0][0]
 
 def file2matrix(filename) :
+    '''
+
+    :param filename:Data file path
+    :return:data vector matrix , label matrix
+    '''
     fr = open(filename)
     arrayOLines = fr.readline()
     numberOfLines = len(arrayOLines)
