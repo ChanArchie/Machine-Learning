@@ -1,10 +1,6 @@
 from numpy import  *
 import operator
 
-import kNN
-from KnnPrint import group, labels
-
-
 def createDataSet() :
     #define data set
     group = array([[1.0,1.1],
@@ -31,7 +27,7 @@ def createDataSet() :
 (5) Return the category with the highest frequency of occurrence among the first k points as the predicted classification of the current point.
 '''
 
-def classfy0 (inX , dataSet ,labels, k):
+def classify0 (inX , dataSet ,labels, k):
     '''
     :param inX:Input vector to be classified
     :param dataSet:Input training sample set (vector set)
@@ -66,3 +62,4 @@ def file2matrix(filename) :
         classLabelVector.append(int(listFromLine[-1]))
         index += 1
     return retuenMat,classLabelVector
+
