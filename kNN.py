@@ -41,11 +41,13 @@ def classify0 (inX , dataSet ,labels, k):
     sqDistances =sqDiffMat.sum(axis=1)
     distances = sqDistances**0.5
     sortDisIndicies = distances.argsort()
-    classCount = { }
+    classCount = {}
     for i in range (k):
         voteIlabel = labels[sortDisIndicies[i]]
         classCount[voteIlabel] = classCount.get(voteIlabel,0) +1
-    sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)
+    sortedClassCount = sorted(classCount.items(),
+                              key=operator.itemgetter(1),
+                              reverse=True)
     return sortedClassCount [0][0]
 
 def file2matrix(filename) :
