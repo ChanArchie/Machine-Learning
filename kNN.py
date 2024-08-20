@@ -60,7 +60,7 @@ def file2matrix(filename) :
     fr = open(filename)
     arrayOLines = fr.readline()
     numberOfLines = len(arrayOLines)
-    retuenMat = zeros ((numberOfLines,3))
+    retuenMat = zeros((numberOfLines,3))
     classLabelVector = []
     index = 0
     for line in arrayOLines:
