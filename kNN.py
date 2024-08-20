@@ -1,6 +1,10 @@
 from numpy import  *
 import operator
 
+import kNN
+from KnnPrint import group, labels
+
+
 def createDataSet() :
     #define data set
     group = array([[1.0,1.1],
@@ -28,6 +32,13 @@ def createDataSet() :
 '''
 
 def classfy0 (inX , dataSet ,labels, k):
+    '''
+    :param inX:Input vector to be classified
+    :param dataSet:Input training sample set (vector set)
+    :param labels:Label set of sample set
+    :param k:Number of nearest neighbors selected
+    :return:The label obtained by Knn classification of the input vector
+    '''
     dataSetSize = dataSet.shape[0]
     diffMat = tile(inX,(dataSetSize,1))-dataSet
     sqDiffMat = diffMat**2
