@@ -1,4 +1,5 @@
 from numpy import  *
+import numpy as np
 import operator
 
 def createDataSet() :
