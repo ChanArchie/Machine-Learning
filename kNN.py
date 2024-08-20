@@ -57,17 +57,29 @@ def file2matrix(filename) :
     :param filename:Data file path
     :return:data vector matrix , label matrix
     '''
-    fr = open(filename)
-    arrayOLines = fr.readline()
-    numberOfLines = len(arrayOLines)
-    returnMat = zeros((numberOfLines,3))
+    # Open the file
+    with open(filename, 'r') as fr:
+        # Read all lines from the file
+        lines = fr.readlines()
+
+    # Number of lines in the file
+    numberOfLines = len(lines)
+
+    # Initialize matrix and class label vector
+    returnMat = np.zeros((numberOfLines, 3))
     classLabelVector = []
-    index = 0
-    for line in arrayOLines:
+
+    # Process each line
+    for index, line in enumerate(lines):
+        # Strip whitespace and split the line
         line = line.strip()
         listFromLine = line.split('\t')
-        returnMat[index,:] = listFromLine[0:3]
+
+        # Convert the first three elements to floats and store them in the matrix
+        returnMat[index, :] = list(map(float, listFromLine[0:3]))
+
+        # Append the last element as an integer to the class label vector
         classLabelVector.append(int(listFromLine[-1]))
-        index += 1
-    return returnMat,classLabelVector
+
+    return returnMat, classLabelVector
 
