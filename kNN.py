@@ -26,3 +26,17 @@ def createDataSet() :
 (4) Determine the frequency of occurrence of the category where the first k points belong;
 (5) Return the category with the highest frequency of occurrence among the first k points as the predicted classification of the current point.
 '''
+
+def classfy0 (inX , dataSet ,labels, k):
+    dataSetSize = dataSet.shape[0]
+    diffMat = tile(inX,(dataSetSize,1))-dataSet
+    sqDiffMat = diffMat**2
+    sqDistances =sqDiffMat.sum(axis=1)
+    distances = sqDistances**0.5
+    sortDisIndicies = distances.argsort()
+    classCount = { }
+    for i in range (k):
+        voteIlabel = labels[sortDisIndicies[i]]
+        classCount[voteIlabel] = classCount.get(voteIlabel,0) +1
+    sortedClassCount = sorted(classCount.iteritems(),key=operator.itemgetter(1),reverse=True)
+    return sortedClassCount [0][0]
