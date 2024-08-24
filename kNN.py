@@ -86,6 +86,14 @@ def file2matrix(filename) :
 
 #归一化处理
 def autoNorm(dataSet):
+    '''
+
+    :param dataSet: data set needed to be normalized
+    :return:
+        normDataSet: normalized data set ,
+        ranges: parameter value range
+        minVal: minium value of parameter
+    '''
     minVals = dataSet.min(0)
     maxVals = dataSet.max(0)
     ranges = maxVals - mainVals
