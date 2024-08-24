@@ -1,4 +1,5 @@
 import kNN
+from numpy import array
 def datingClassTest():
     hoRatio = 0.10
     datingDataMat, datingLabels =file2matrix('datingTestSet.txt')
