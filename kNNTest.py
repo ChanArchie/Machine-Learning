@@ -18,9 +18,9 @@ def classifyPerson():
     percentTats= float(input("percentage of time spent playing into video game?"))
     ffMiles = float(input("frequent flier miles earned per year?"))
     iceCream = float(input("liters of ice cream consumed per year?"))
-    datingDataMat,datingLabels =files2matrix('datingTestSet2.txt')
-    normMat,ranges,minVals =autoNorm(datingDataMat)
+    datingDataMat,datingLabels =kNN.files2matrix('datingTestSet2.txt')
+    normMat,ranges,minVals =kNN.autoNorm(datingDataMat)
     inArr = array([ffMiles,percentTats,iceCream])
-    classifierResult =classify0((inArr-minVals)/ranges,normMat,datingLabels,3)
+    classifierResult =kNN.classify0((inArr-minVals)/ranges,normMat,datingLabels,3)
     print("You will probably like this person:"+resultList[classifierResult-1])
 
