@@ -18,7 +18,7 @@ def classifyPerson():
     percentTats= float(input("percentage of time spent playing into video game?"))
     ffMiles = float(input("frequent flier miles earned per year?"))
     iceCream = float(input("liters of ice cream consumed per year?"))
-    datingDataMat,datingLabels =kNN.files2matrix('datingTestSet2.txt')
+    datingDataMat,datingLabels =kNN.file2matrix('datingTestSet2.txt')
     normMat,ranges,minVals =kNN.autoNorm(datingDataMat)
     inArr = array([ffMiles,percentTats,iceCream])
     classifierResult =kNN.classify0((inArr-minVals)/ranges,normMat,datingLabels,3)
