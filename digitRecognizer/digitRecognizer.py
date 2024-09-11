@@ -10,7 +10,7 @@ def  img2Vector(filename):
 
 def digitRecognizerRunner():
     hwLabels = []
-    trainingFileList = Listdir('trainingDigits')
+    trainingFileList = listdir('trainingDigits')
     m = len(trainingFileList)
     trainingMat = zeros((m, 1024))
     for i in range(m):
