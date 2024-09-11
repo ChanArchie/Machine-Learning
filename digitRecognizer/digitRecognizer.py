@@ -8,7 +8,7 @@ def  img2Vector(filename):
                 returnVect[0,32*i+j] = int(lineStr[j])
     return returnVect
 
-def digitRecognizer():
+def digitRecognizerRunner():
     hwLabels = []
     trainingFileList = Listdir('trainingDigits')
     m = len(trainingFileList)
