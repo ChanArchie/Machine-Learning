@@ -18,7 +18,7 @@ def img2Vector(filename):
 def digitRecognizerRunner():
     hwLabels = []
     # 获取训练数据集
-    trainingFileList = os.listdir('/digitRecognizer/trainingDigits')
+    trainingFileList = os.listdir('digitRecognizer/trainingDigits')
     m = len(trainingFileList)
     trainingMat = np.zeros((m, 1024))
 
@@ -28,10 +28,10 @@ def digitRecognizerRunner():
         fileStr = fileNameStr.split('.')[0]  # 去掉文件扩展名
         classNumStr = int(fileStr.split('_')[0])  # 获取分类号
         hwLabels.append(classNumStr)
-        trainingMat[i, :] = img2Vector(f'/digitRecognizer/trainingDigits/{fileNameStr}')  # 读取图像文件
+        trainingMat[i, :] = img2Vector(f'digitRecognizer/trainingDigits/{fileNameStr}')  # 读取图像文件
 
     # 获取测试数据集
-    testFileList = os.listdir('/digitRecognizer/testDigits')
+    testFileList = os.listdir('digitRecognizer/testDigits')
     errorCount = 0.0
     mTest = len(testFileList)
 
@@ -40,7 +40,7 @@ def digitRecognizerRunner():
         fileNameStr = testFileList[i]
         fileStr = fileNameStr.split('.')[0]  # 去掉文件扩展名
         classNumStr = int(fileStr.split('_')[0])  # 获取真实分类号
-        vectorUnderTest = img2Vector(f'/digitRecognizer/testDigits/{fileNameStr}')  # 读取测试图像文件
+        vectorUnderTest = img2Vector(f'digitRecognizer/testDigits/{fileNameStr}')  # 读取测试图像文件
 
         # 通过 kNN 进行分类
         classifierResult = kNN.classify0(vectorUnderTest, trainingMat, hwLabels, 3)
