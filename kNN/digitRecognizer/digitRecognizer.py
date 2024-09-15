@@ -1,6 +1,6 @@
 import numpy as np
 import os
-import kNN
+from kNN import kNN
 
 
 # 将图像文件转换为向量
